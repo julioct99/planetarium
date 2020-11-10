@@ -145,8 +145,6 @@ class Mundo:
 
         glTranslate(*posicion)
         glRotatef(planeta["wRotProp"] * t, 0.0, 1.0, 0.0)
-        # if i == 1:
-        #     print(planeta["wRotProp"] * t)
 
         glScalef(tamanio, tamanio, tamanio)
 
