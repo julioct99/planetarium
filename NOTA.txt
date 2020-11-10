@@ -1,0 +1,45 @@
+Modelo: 
+	-> Dejar de borrar. Ahora borra el mundo
+	-> En los modos flat y smooth, antes de pintar se establece el material
+	-> En el init, iniciamos los parámetros físicos (JSON). Se determina si hay lunas
+
+Mundo: 
+	-> Cargar las cámaras (JSON)
+	-> DrawModel:
+		=> glEnable(LIGHT)
+		=> draw
+		=> glDisable(LIGHT)
+	-> Display:
+		=> borramos (glClear y glClearColor)
+        => activar frustrum de camara activar
+        => glMatrixmode + glLoadIdentity
+        => activar cámara
+        => glScale
+        => glRotate
+        => incrementar el tiempo (u obtenerlo del sistema)
+        => Focos
+        => Color del Modelo
+        => Pintamos:
+            1: Buscar la posicion (x, 0, z) de cada cuerpo. O = w * t. (r * cos(O), 0, r * sen(O))
+
+            .. [PARA CADA PLANETA] -------------------------------------------------------------
+                2: glPushMatrix()
+                3: disable light
+                4: glBegin(GL_LINES), pintar la órbita:
+                i ... 360:
+                    glVertex3d ((p.radio/100.0)*cos(2*i*3.14/360), 0 , (p.radio/180)*sen(2*i*3.14/360)) 
+                5: enable light
+                6: glTranslate(nuevaPosición)
+                7: glRotate(rotacionPropia * t, 0.0f, 1.0f, 0.0f)
+                8: DrawModel
+
+                .. [PARA CADA LUNA] -------------------------------------------------------------
+                    9: glPushMatrix()
+                    10: Repetir el proceso, pero con l(luna) en vez de p(planeta)
+                    11: glPopMatrix()
+                
+                12: glPopMatrix()
+
+            13: glFlush()
+            14: glutSwapBuffers()
+
