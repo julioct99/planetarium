@@ -133,7 +133,7 @@ class Mundo:
             glEnd()
             glEnable(GL_LIGHTING)
 
-    def drawPlaneta(self, planeta, i, t):
+    def drawPlaneta(self, planeta, i, t, luna):
         glPushMatrix()
 
         tamanio = planeta["tamanio"] * 5
@@ -149,6 +149,12 @@ class Mundo:
         glScalef(tamanio, tamanio, tamanio)
 
         self.drawModel(self.Sol, self.escalaGeneral, self.material.materiales[i], planeta)
+
+        # Pintamos las lunas
+        for l in planeta["l"]:
+            if l != "n":
+                print(l["nombre"])
+
         glPopMatrix()
 
     def drawModel(self, forma, escala, material, planeta):
@@ -188,7 +194,7 @@ class Mundo:
 
         # Pintamos los planetas.
         for i, planeta in enumerate(self.planeta.planetas):
-            self.drawPlaneta(planeta, i, t)
+            self.drawPlaneta(planeta, i, t, False)
 
         glPopMatrix()
         glMatrixMode(GL_PROJECTION)
