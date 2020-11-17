@@ -111,30 +111,6 @@ class Modelo:
 
     def Draw_Model(self, iForma, scale_from_editor, zoom, material, planeta):
 
-        # zoom *= planeta["tamanio"]
-        # r = planeta["radio"]
-        # # posicion = (m.cos(r), 0, m.sin(r))
-
-        # # Pintar la órbita
-        # # ----------------------------------------------------------------------------------------
-        # glPushMatrix()
-        # glBegin(GL_LINES)
-        # radio = r * 1000 * scale_from_editor * zoom
-
-        # # glVertex3d ((p.radio/100.0)*cos(2*i*3.14/360), 0 , (p.radio/180)*sen(2*i*3.14/360))
-        # for i in range(360):
-        #     glVertex3d(
-        #         ((radio / 180) * m.cos(2 * i * 3.14 / 360)),
-        #         0,
-        #         ((radio / 180) * m.sin(2 * i * 3.14 / 360)),
-        #     )
-
-        # glEnd()
-        # # ----------------------------------------------------------------------------------------
-
-        # glTranslate(m.cos(r), 0, m.sin(r))
-        # glPopMatrix()
-
         if iForma == 6:  # Wired
             glDisable(GL_LIGHTING)
             for face in self.ListaCaras:
@@ -257,5 +233,3 @@ class Modelo:
             self.ListaPuntos3D[face.a].y * scale_from_editor * zoom,
             self.ListaPuntos3D[face.a].z * scale_from_editor * zoom,
         )
-
-        # glEnd()

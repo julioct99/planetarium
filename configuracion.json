@@ -139,7 +139,7 @@
   [{
       "radio" : 0.0,
       "wRotAstro" : 0.0,
-      "wRotProp" : 0.8,
+      "wRotProp" : 0.02,
       "tamanio" : 0.5,
       "nombre" : "Sol",
       "l" : "n"
@@ -147,32 +147,32 @@
     {
       "radio" : 110.0,
       "wRotAstro" : 4.5,
-      "wRotProp" : 0.7,
-      "tamanio" : 0.1,
+      "wRotProp" : 0.07,
+      "tamanio" : 0.15,
       "nombre" : "Mercurio",
       "l" : "n"
     },
     {
       "radio" : 170,
       "wRotAstro" : 4.0,
-      "wRotProp" : 0.4,
+      "wRotProp" : 0.04,
       "tamanio" : 0.2,
       "nombre" : "Venus",
       "l" : "n"
     },
     {
       "radio" : 230.0,
-      "wRotAstro" : 0.4,
-      "wRotProp" : 0.19,
+      "wRotAstro" : 1,
+      "wRotProp" : 0.019,
       "tamanio" : 0.3,
       "nombre" : "Tierra",
       "l" : 
           [
             {
-              "radio" : 15.0,
+              "radio" : 20.0,
               "wRotAstro" : 6.45,
-              "wRotProp" : 0.55,
-              "tamanio" : 0.05,
+              "wRotProp" : 0.055,
+              "tamanio" : 0.07,
               "nombre" : "Luna",
               "l" : []
             }
@@ -181,7 +181,7 @@
     {
       "radio" : 300.0,
       "wRotAstro" : 2.5,
-      "wRotProp" : 0.2,
+      "wRotProp" : 0.02,
       "tamanio" : 0.25,
       "nombre" : "Marte",
       "l" : "n"
@@ -189,15 +189,15 @@
     {
       "radio" : 410.0,
       "wRotAstro" : 2.0,
-      "wRotProp" : 0.3,
+      "wRotProp" : 0.03,
       "tamanio" : 0.4,
       "nombre" : "Jupiter",
       "l" : [
               {
                 "radio" : 25.0,
                 "wRotAstro" : 6.45,
-                "wRotProp" : 0.55,
-                "tamanio" : 0.08,
+                "wRotProp" : 0.055,
+                "tamanio" : 0.05,
                 "nombre" : "Ío",
                 "l" : []
               }
@@ -205,8 +205,8 @@
               {
                 "radio" : 35.0,
                 "wRotAstro" : 4.5,
-                "wRotProp" : 0.75,
-                "tamanio" : 0.1,
+                "wRotProp" : 0.075,
+                "tamanio" : 0.07,
                 "nombre" : "Europa",
                 "l" : []
               }
@@ -215,7 +215,7 @@
     {
       "radio" : 510.0,
       "wRotAstro" : 1.5,
-      "wRotProp" : 0.19,
+      "wRotProp" : 0.019,
       "tamanio" : 0.3,
       "nombre" : "Saturno",
       "l" : "n"

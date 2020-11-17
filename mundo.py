@@ -133,27 +133,25 @@ class Mundo:
             glEnd()
             glEnable(GL_LIGHTING)
 
-    def drawPlaneta(self, planeta, i, t, luna):
-        glPushMatrix()
-
-        tamanio = planeta["tamanio"] * 5
+    def drawAstro(self, planeta, i, t, luna):
         r = planeta["radio"] * self.zoom
-        omega = t * self.escalaGeneral * planeta["wRotAstro"]
-        posicion = [r * m.cos(omega) / 180, 0, r * m.sin(omega) / 180]
+        o = t * self.escalaGeneral * planeta["wRotAstro"]
+
+        glPushMatrix()
 
         self.drawOrbita(r)
 
-        glTranslate(*posicion)
-        glRotatef(planeta["wRotProp"] * t, 0.0, 1.0, 0.0)
-
-        glScalef(tamanio, tamanio, tamanio)
+        glRotatef((planeta["wRotProp"] * t) % 360, 0.0, 1.0, 0.0)
+        glTranslate(r * m.cos(o) / 180, 0, r * m.sin(o) / 180)
+        glScalef(*([planeta["tamanio"] * 5] * 3))
 
         self.drawModel(self.Sol, self.escalaGeneral, self.material.materiales[i], planeta)
 
         # Pintamos las lunas
-        for l in planeta["l"]:
-            if l != "n":
-                print(l["nombre"])
+        if not luna:
+            for l in planeta["l"]:
+                if l != "n":
+                    self.drawAstro(l, i, t, True)
 
         glPopMatrix()
 
@@ -194,7 +192,7 @@ class Mundo:
 
         # Pintamos los planetas.
         for i, planeta in enumerate(self.planeta.planetas):
-            self.drawPlaneta(planeta, i, t, False)
+            self.drawAstro(planeta, i, t, False)
 
         glPopMatrix()
         glMatrixMode(GL_PROJECTION)
