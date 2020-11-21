@@ -133,7 +133,7 @@ class Mundo:
             glEnd()
             glEnable(GL_LIGHTING)
 
-    def drawAstro(self, planeta, i, t, luna):
+    def drawAstro(self, planeta, i, t, es_luna):
         r = planeta["radio"] * self.zoom
         o = t * self.escalaGeneral * planeta["wRotAstro"]
 
@@ -143,12 +143,12 @@ class Mundo:
 
         glRotatef((planeta["wRotProp"] * t) % 360, 0.0, 1.0, 0.0)
         glTranslate(r * m.cos(o) / 180, 0, r * m.sin(o) / 180)
-        glScalef(*([planeta["tamanio"] * 5] * 3))
+        glScalef(*([planeta["tamanio"]] * 3))
 
         self.drawModel(self.Sol, self.escalaGeneral, self.material.materiales[i], planeta)
 
         # Pintamos las lunas
-        if not luna:
+        if not es_luna:
             for l in planeta["l"]:
                 if l != "n":
                     self.drawAstro(l, i, t, True)
